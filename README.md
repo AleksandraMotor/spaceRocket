@@ -36,8 +36,8 @@ pozniej napisze
 ## Developers
 
   Program was created by following students:
-Aleksandra Motor
-Weronika Smagór
-Krzysztof Konieczny
-Patryk Polczyk
+### Aleksandra Motor
+### Weronika Smagór
+### Krzysztof Konieczny
+### Patryk Polczyk
                        
