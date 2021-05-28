@@ -1,0 +1,19 @@
+1. przygotowac puste pliki - szkielet programu i folderow do makefile
+2. prosty schemat dzialania 
+3. napisac kod nawet spaghetti byle dzialalo 
+4. refactoring kodu
+5. przygotowac makefile 
+6. do statusu dodac changelog
+7. weryfikacja dzialania makefila - clean i phony czy poprawnie dzialaja
+8. przygotowac predefiniowane rakiety - mozna to uznac jako test buildera 
+9. napisac setup
+10. moze zrobic koszty poszczegolnych czesci i na koniec zwracac koszt budowy rakiety ?? hmm 
+
+                                                                      STRUKTURA
+                                                                        MAIN
+                                                  wywolanie wiadomosci powitalnej oraz menu budowy    
+                      opcja 1                                           opcja 2                                                 opcja 3
+                director 1 -pojazd                                director 2 - pocisk                    director 3 - one way ticket - rakieta ziemia -> slonce  
+               builder 1 - lot na ksiezyc                       builder 1 - krotki zasieg                              builder 1 - plastik - i tak sie rozpuscisz
+               builder 2 - lot na marsa i wenus                 builder 2 - sredni zasieg                              builder 2 - eko - rakieta z gowna i patykow
+                                                                builder 3 - daleki zasieg  
