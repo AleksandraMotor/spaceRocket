@@ -27,7 +27,7 @@ implementation of builder pattern created with c++.
   Project is created with:
   * C++ version: 17.0
 
-## Setup
+##Setup
 
 pozniej napisze
 
