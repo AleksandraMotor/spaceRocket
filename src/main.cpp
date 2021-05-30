@@ -1,16 +1,45 @@
 #include <iostream>
 #include <string>
 
-/*class Rocket_Parts    //parts list
+//PROPERTIES
+class Speed
 {
+  Public:
+    int v;
+};
 
-}
-*/
-
-/*class Vehicle_Builder
+class NoSeats       //number of seats
 {
-}
-*/
+  Public:
+    int n;
+};
+
+class Capacity
+{
+  Public:
+    int cap;
+};
+
+class Tank
+{
+  Public:
+    int vol;
+};
+
+class Firepower
+{
+  Public:
+    int energy;   //to trzeba zmienic, nie podoba mi sie ta nazwa
+};
+
+class Vehicle_Builder
+{
+  Public:
+    virtual Speed* getSpeed() = 0;
+    virtual NoSeats* getNoSeats = 0;
+    virtual Capacity* getCapacity = 0;
+};
+
 
 /*class Bullet_Builder
 {
