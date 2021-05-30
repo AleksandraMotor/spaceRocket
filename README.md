@@ -27,7 +27,7 @@ implementation of builder pattern created with c++.
   Project is created with:
   * C++ version: 17.0
 
-##Setup
+## Setup
 
 pozniej napisze
 
@@ -43,7 +43,7 @@ pozniej napisze
 ## Developers
 
   Program was created by following students:
-### Aleksandra Motor
-### Weronika Smagór
-### Krzysztof Konieczny
-### Patryk Polczyk
+### [Aleksandra Motor](https://github.com/AleksandraMotor)
+### [Weronika Smagór]
+### [Krzysztof Konieczny]
+### [Patryk Polczyk](https://github.com/ppolczyk)

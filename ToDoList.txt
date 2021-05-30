@@ -1,5 +1,5 @@
-1. przygotowac puste pliki - szkielet programu i folderow do makefile
-2. prosty schemat dzialania 
+1. przygotowac puste pliki - szkielet programu i folderow do makefile - done
+2. prosty schemat dzialania - done
 3. napisac kod nawet spaghetti byle dzialalo 
 4. refactoring kodu
 5. przygotowac makefile 
@@ -20,23 +20,23 @@
                                                                 
                                                                 
                                                                 
-                                                                  czesci rakiety
+                                                                  parametry rakiety
                                                          builder 1                           builder 2
-                                                         silnik                              silnik
-                                                         obudowa                             obudowa         
-                                                         nos                                 nos         
-                                                         modul dowodzenia                    czesc bojowa
-                                                         modul serwisowy                     sterownik kierowania
-                                                         ladownik                            
-                                                         spadochron
+                                                         predkosc                            predkosc
+                                                         liczba pasazerow                    sila razenia        
+                                                         wielkosc ladowni                    zbiornik         
+                                                                             
+                                                                            
+                                                                                    
+                                                         
                                                                   
                                                                   
     main      director       intefejsy               konkretni budowniczowie      elementy skladowe         koncowy produkt                            
-    Klient -> director 1 ->  builder 1            -> lot na ksiezyc           ->  czesci                 -> return messege 1                                      
-                                                  -> lot na marsa             ->  czesci                 -> return messege 1
-                         ->  builder 2            -> krotki zasieg            ->  czesci                 -> return messege 2    
-                         dwa rozne interfejsy     -> sredni zasieg            ->  czesci                 -> return messege 2                      
-                         pobieraja inne czesci    -> daleki zasieg            ->  czesci                 -> return messege 2                   
+    Klient -> director 1 ->  builder 1            -> lot na ksiezyc           ->  parametry                 -> return messege 1                                      
+                                                  -> lot na marsa             ->  parametry                 -> return messege 1
+                         ->  builder 2            -> krotki zasieg            ->  parametry                 -> return messege 2    
+                         dwa rozne interfejsy     -> sredni zasieg            ->  parametry                 -> return messege 2                      
+                         pobieraja inne czesci    -> daleki zasieg            ->  parametry                 -> return messege 2                   
                                                                                          
                                                                                           
                                                                                           
