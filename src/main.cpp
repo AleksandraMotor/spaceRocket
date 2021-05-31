@@ -41,16 +41,26 @@ class Vehicle
 
     void parameters()
     {
-      std::cout << "Maximum speed: " << velocity->v << std::endl;
-      std::cout << "Maximum stuff: " << space->n << std::endl;
-      std::cout << "Maximum hold capacity: " <<  hold->cap << std::endl;
+      std::cout << "Maximum speed: " << velocity->v << "km/s" << std::endl;
+      std::cout << "Maximum stuff: " << space->n << "people" << std::endl;
+      std::cout << "Maximum hold capacity: " << hold->cap << "tons" << std::endl;
     }
 };
 
-/*class Bullet
+class Bullet
 {
-}
-*/
+  public:
+    Speed*     velocity;
+    Tank*      distance;
+    Firepower* explosion;
+
+    void parameters()
+    {
+      std::cout << "Maximum speed: " << velocity->v << "km/s" << std::endl;
+      std::cout << "Maximum distance: " << distance->vol << "km" << std::endl;
+      std::cout << "Blast radius: " << explosion->energy << "km" <<std::endl;
+    }  
+};
 
 class VehicleBuilder
 {
@@ -60,13 +70,18 @@ class VehicleBuilder
     virtual Capacity* getCapacity() = 0;
 };
 
-/*class BulletBuilder
+class BulletBuilder
 {
-} 
-*/
+  public:
+    virtual Speed* getSpeed() = 0;
+    virtual Tank* getTank() = 0;
+    virtual Firepower* getFirepower() = 0;  
+}; 
+
 class DesignDirector     //Werner Von Braun !!
 {
   VehicleBuilder* vehicleBuilder;
+  BulletBuilder* bulletBuilder;
 
   public:
     void setVehicleBuilder(VehicleBuilder* newVehicleBuilder)
@@ -86,66 +101,172 @@ class DesignDirector     //Werner Von Braun !!
 
       return vehicle;
     }
+
+  public:
+    void setBulletBuilder(BulletBuilder* newBulletBuilder)
+    {
+      bulletBuilder = newBulletBuilder;
+    }
+
+    Bullet* getBullet()
+    {
+      Bullet* bullet = new Bullet();
+
+      bullet->velocity = bulletBuilder->getSpeed();
+
+      bullet->distance = bulletBuilder->getTank();
+
+      bullet->explosion = bulletBuilder->getFirepower();
+
+      return bullet;
+    }    
 };
-//---------Concretes builders-------------
+//---------Concretes Vehicle builders-------------
 class MoonRocket : public VehicleBuilder
 {
-    public:
-      Speed* getSpeed()
-      {
-        Speed* velocity = new Speed();
-        velocity->v = 30000;
-        return velocity;
-      } 
+  public:
+    Speed* getSpeed()
+    {
+      Speed* velocity = new Speed();
+      velocity->v = 30000;
+      return velocity;
+    } 
 
-      NoSeats* getNoSeats()
-      {
-        NoSeats* space = new NoSeats();
-        space->n = 6;
-        return space;
-      }
+    NoSeats* getNoSeats()
+    {
+      NoSeats* space = new NoSeats();
+      space->n = 6;
+      return space;
+    }
 
-      Capacity* getCapacity()
-      {
-        Capacity* hold = new Capacity();
-        hold->cap = 50;
-        return hold;
-      }
-
+    Capacity* getCapacity()
+    {
+      Capacity* hold = new Capacity();
+      hold->cap = 50;
+      return hold;
+    }
 };
 
-
-/*class Mars_Rocket
+class Mars_Rocket : public VehicleBuilder
 {
-}
-*/
+  public:
+    Speed* getSpeed()
+    {
+      Speed* velocity = new Speed();
+      velocity->v = 30000;
+      return velocity;
+    } 
 
+    NoSeats* getNoSeats()
+    {
+      NoSeats* space = new NoSeats();
+      space->n = 6;
+      return space;
+    }
 
-/*class Short_Dist
+    Capacity* getCapacity()
+    {
+      Capacity* hold = new Capacity();
+      hold->cap = 50;
+      return hold;
+    }
+};
+
+//---------Concretes Bullet builders----------
+class Short_Dist : public BulletBuilder
 {
-}
-*/
+  public:
+    Speed* getSpeed()
+    {
+      Speed* velocity = new Speed();
+      velocity->v = 1000;
+      return velocity;
+    } 
 
+    Tank* getTank()
+    {
+      Tank* distance = new Tank();
+      distance->vol = 20000;
+      return distance;
+    }
 
-/*class Mid_Dist
+    Firepower* getFirepower()
+    {
+      Firepower* explosion = new Firepower();
+      explosion->energy = 300;
+      return explosion;
+    }
+};
+
+class Mid_Dist : public BulletBuilder
 {
-}
-*/
+  public:
+    Speed* getSpeed()
+    {
+      Speed* velocity = new Speed();
+      velocity->v = 1000;
+      return velocity;
+    } 
 
+    Tank* getTank()
+    {
+      Tank* distance = new Tank();
+      distance->vol = 20000;
+      return distance;
+    }
 
-/*class Long_Dist
+    Firepower* getFirepower()
+    {
+      Firepower* explosion = new Firepower();
+      explosion->energy = 300;
+      return explosion;
+    }
+};
+
+class Long_Dist : public BulletBuilder
 {
-}
-*/
+  public:
+    Speed* getSpeed()
+    {
+      Speed* velocity = new Speed();
+      velocity->v = 1000;
+      return velocity;
+    } 
+
+    Tank* getTank()
+    {
+      Tank* distance = new Tank();
+      distance->vol = 20000;
+      return distance;
+    }
+
+    Firepower* getFirepower()
+    {
+      Firepower* explosion = new Firepower();
+      explosion->energy = 300;
+      return explosion;
+    }
+};
 //----------------------------------------
 
+class Messeges            
+{
+  void welcome()
+  {                               
+    std::cout << "wiadomosc powitalna." << std::endl;
+  }
 
+  void goodbye()
+  {
+    std::cout << "wiadomosc pozegnalna." << std::endl;
+  }
 
-/*class Messeges            //tutaj mysle dac powitalna wiadomosc oraz wiadomosci o tym z czego sklada sie dana rakieta jako metody klasy 
-{                             
+  void menu()
+  {
+    std::cout << "opcje do wyboru" << std::endl;
+  }
+}; 
 
-} 
-*/
 
 int main()
 {

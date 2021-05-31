@@ -1,13 +1,13 @@
 1. przygotowac puste pliki - szkielet programu i folderow do makefile - done
 2. prosty schemat dzialania - done
-3. napisac kod nawet spaghetti byle dzialalo 
+3. napisac kod nawet spaghetti byle dzialalo - done 
 4. refactoring kodu
 5. przygotowac makefile 
 6. do statusu dodac changelog
 7. weryfikacja dzialania makefila - clean i phony czy poprawnie dzialaja
-8. przygotowac predefiniowane rakiety - mozna to uznac jako test buildera 
+8. przygotowac predefiniowane rakiety - mozna to uznac jako test buildera - done 
 9. napisac setup
-10. moze zrobic koszty poszczegolnych czesci i na koniec zwracac koszt budowy rakiety ?? hmm 
+10. Ustawic jakies parametry rakiety i wiadomosci.
 
                                                                       STRUKTURA
                                                                         MAIN
