@@ -7,7 +7,7 @@ implementation of builder pattern created with c++.
 * [General information](#general-information)
 * [Technologies](#technologies)
 * [Setup](#setup)
-* [Status](#status)
+* [Changelog](#changelog)
 * [Sources](#sources)
 * [DevStuff](#developers)
 
@@ -31,10 +31,19 @@ implementation of builder pattern created with c++.
 
 pozniej napisze
 
-## Status
+## Changelog
 
-  version 1.0
-  
+  #### version 1.0
+    * added empty files
+
+  #### version 1.0-2
+    * prepare ToDoList
+    * added scheme of programe
+
+  #### version 1.1
+    * added code in main.cpp
+    * fixed bugs
+
 ## Sources
 
   The inspiration for the creation of the program was an article about the design pattern on the website:
