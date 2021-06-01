@@ -3,7 +3,7 @@
 3. napisac kod nawet spaghetti byle dzialalo - done 
 4. refactoring kodu
 5. przygotowac makefile 
-6. do statusu dodac changelog
+6. do statusu dodac changelog - done
 7. weryfikacja dzialania makefila - clean i phony czy poprawnie dzialaja
 8. przygotowac predefiniowane rakiety - mozna to uznac jako test buildera - done 
 9. napisac setup
