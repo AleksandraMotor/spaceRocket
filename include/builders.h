@@ -6,7 +6,7 @@ class VehicleBuilder
 {
   public:
     virtual Speed* getSpeed() = 0;
-    virtual NoSeats* getNoSeats() = 0;
+    virtual NumSeats* getNumSeats() = 0;
     virtual Capacity* getCapacity() = 0;
 };
 

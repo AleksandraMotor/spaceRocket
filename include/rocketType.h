@@ -7,7 +7,7 @@ class Vehicle
 {
   public:
     Speed*    velocity;
-    NoSeats*  space;
+    NumSeats*  space;
     Capacity* hold;
 
     void parameters()

@@ -7,7 +7,12 @@ class Messages
   public:
   void welcome()
   {                               
-    std::cout << "wiadomosc powitalna." << std::endl;
+    std::cout << "wiadomosc powitalna." << std::endl;    
+    /* "Rakiety są zbudowane z gotowych modułów (części), takich jak:
+    silniki, skrzydła, koła, zbiorniki z paliwem i stateczniki. 
+    Dodatkowe moduły, takie jak gotowe łaziki lub broń, mogą zostać dodane.
+    Proponuję tutaj wypisać części, z których później będziemy budować,
+    nie tylko dla użytkownika, ale tez dla nas, bo się gubię co ma co oznaczać. */
   }
 
   void goodbye()
@@ -17,8 +22,8 @@ class Messages
 
   void error()
   {
-    std::cout << "This item is out of range" << std::endl;
-    std::cout << "Plese select item from assortment list."<< std::endl;
+    std::cout << "This item is out of range." << std::endl;
+    std::cout << "Please select an item from the assortment list."<< std::endl;
   }
 
   void ask()
@@ -37,7 +42,7 @@ class Messages
     std::cout << "(4)                    Medium Distance                 PRICE |" << std::endl;
     std::cout << "(5)                     Long Distance                  PRICE |" << std::endl;
     std::cout << "|*----------------------------------------------------------*|" << std::endl;
-    std::cout << "Please select your rocket if you want knew it parametrs." << std::endl;
+    std::cout << "Please select your rocket if you want to knew its parametrs." << std::endl;
   }
 }; 
 

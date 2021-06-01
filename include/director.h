@@ -3,7 +3,7 @@
 #ifndef DIRECTOR_H
 #define DIRECTOR_H
 
-class DesignDirector     //Werner Von Braun !!
+class DesignDirector
 {
   VehicleBuilder* vehicleBuilder;
   MissleBuilder* missleBuilder;
@@ -20,7 +20,7 @@ class DesignDirector     //Werner Von Braun !!
 
       vehicle->velocity = vehicleBuilder->getSpeed();
 
-      vehicle->space = vehicleBuilder->getNoSeats();
+      vehicle->space = vehicleBuilder->getNumSeats();
 
       vehicle->hold = vehicleBuilder->getCapacity();
 

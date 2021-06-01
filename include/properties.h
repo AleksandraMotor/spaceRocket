@@ -7,7 +7,7 @@ class Speed
     int v;
 };
 
-class NoSeats       //number of seats
+class NumSeats
 {
   public:
     int n;

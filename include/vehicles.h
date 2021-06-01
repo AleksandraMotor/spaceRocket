@@ -13,9 +13,9 @@ class MoonRocket : public VehicleBuilder
       return velocity;
     } 
 
-    NoSeats* getNoSeats()
+    NumSeats* getNumSeats()
     {
-      NoSeats* space = new NoSeats();
+      NumSeats* space = new NumSeats();
       space->n = 6;
       return space;
     }
@@ -38,9 +38,9 @@ class MarsRocket : public VehicleBuilder
       return velocity;
     } 
 
-    NoSeats* getNoSeats()
+    NumSeats* getNumSeats()
     {
-      NoSeats* space = new NoSeats();
+      NumSeats* space = new NumSeats();
       space->n = 6;
       return space;
     }
