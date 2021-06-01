@@ -42,7 +42,7 @@ class Messages
     std::cout << "(4)                    Medium Distance                 PRICE |" << std::endl;
     std::cout << "(5)                     Long Distance                  PRICE |" << std::endl;
     std::cout << "|*----------------------------------------------------------*|" << std::endl;
-    std::cout << "Please select your rocket if you want to knew its parametrs." << std::endl;
+    std::cout << "Please select your rocket if you want to know its parametrs." << std::endl;
   }
 }; 
 

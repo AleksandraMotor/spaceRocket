@@ -19,7 +19,7 @@ int main()
   {
     messages.assortment();
     std::cin >> menuOption;
-    menu->option = menuOption;
+    menu->menu(menuOption);
     
     messages.ask();
     std::cin >> askOption;

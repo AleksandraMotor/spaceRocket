@@ -12,9 +12,8 @@ class Menu
   public:
   DesignDirector director;
   Messages messages;
-  int option;
   
-  void menu(int option)
+  void menu(int &option)
   {
     switch (option)
         {
@@ -66,6 +65,7 @@ class Menu
           director.setMissleBuilder(&longDist);
           missle = director.getMissle();
           missle->parameters();
+          messages.error();
           break;   
           }
         default:
