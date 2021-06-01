@@ -41,8 +41,13 @@ pozniej napisze
     * added scheme of programe
 
   #### version 1.1
-    * added code in main.cpp
+    * added main.cpp code
     * fixed bugs
+  
+  #### version 1.2
+    * added welcome and goodbye messages
+    * added include folder and class files
+    * added makefile code
 
 ## Sources
 

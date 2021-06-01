@@ -29,7 +29,7 @@ class Tank
 class Firepower
 {
   public:
-    int energy;   //to trzeba zmienic, nie podoba mi sie ta nazwa
+    int energy;
 };
 
 class Vehicle
@@ -41,13 +41,13 @@ class Vehicle
 
     void parameters()
     {
-      std::cout << "Maximum speed: " << velocity->v << "km/s" << std::endl;
-      std::cout << "Maximum stuff: " << space->n << "people" << std::endl;
-      std::cout << "Maximum hold capacity: " << hold->cap << "tons" << std::endl;
+      std::cout << "Maximum speed: " << velocity->v << " km/s" << std::endl;
+      std::cout << "Maximum stuff: " << space->n << " people" << std::endl;
+      std::cout << "Maximum hold capacity: " << hold->cap << " tons" << std::endl;
     }
 };
 
-class Bullet
+class Missle
 {
   public:
     Speed*     velocity;
@@ -56,9 +56,9 @@ class Bullet
 
     void parameters()
     {
-      std::cout << "Maximum speed: " << velocity->v << "km/s" << std::endl;
-      std::cout << "Maximum distance: " << distance->vol << "km" << std::endl;
-      std::cout << "Blast radius: " << explosion->energy << "km" <<std::endl;
+      std::cout << "Maximum speed: " << velocity->v << " km/s" << std::endl;
+      std::cout << "Maximum distance: " << distance->vol << " km" << std::endl;
+      std::cout << "Blast radius: " << explosion->energy << " km" <<std::endl;
     }  
 };
 
@@ -70,7 +70,7 @@ class VehicleBuilder
     virtual Capacity* getCapacity() = 0;
 };
 
-class BulletBuilder
+class MissleBuilder
 {
   public:
     virtual Speed* getSpeed() = 0;
@@ -81,7 +81,7 @@ class BulletBuilder
 class DesignDirector     //Werner Von Braun !!
 {
   VehicleBuilder* vehicleBuilder;
-  BulletBuilder* bulletBuilder;
+  MissleBuilder* missleBuilder;
 
   public:
     void setVehicleBuilder(VehicleBuilder* newVehicleBuilder)
@@ -103,22 +103,22 @@ class DesignDirector     //Werner Von Braun !!
     }
 
   public:
-    void setBulletBuilder(BulletBuilder* newBulletBuilder)
+    void setMissleBuilder(MissleBuilder* newMissleBuilder)
     {
-      bulletBuilder = newBulletBuilder;
+      missleBuilder = newMissleBuilder;
     }
 
-    Bullet* getBullet()
+    Missle* getMissle()
     {
-      Bullet* bullet = new Bullet();
+      Missle* missle = new Missle();
 
-      bullet->velocity = bulletBuilder->getSpeed();
+      missle->velocity = missleBuilder->getSpeed();
 
-      bullet->distance = bulletBuilder->getTank();
+      missle->distance = missleBuilder->getTank();
 
-      bullet->explosion = bulletBuilder->getFirepower();
+      missle->explosion = missleBuilder->getFirepower();
 
-      return bullet;
+      return missle;
     }    
 };
 //---------Concretes Vehicle builders-------------
@@ -147,7 +147,7 @@ class MoonRocket : public VehicleBuilder
     }
 };
 
-class Mars_Rocket : public VehicleBuilder
+class MarsRocket : public VehicleBuilder
 {
   public:
     Speed* getSpeed()
@@ -173,7 +173,7 @@ class Mars_Rocket : public VehicleBuilder
 };
 
 //---------Concretes Bullet builders----------
-class Short_Dist : public BulletBuilder
+class ShortDist : public MissleBuilder
 {
   public:
     Speed* getSpeed()
@@ -198,7 +198,7 @@ class Short_Dist : public BulletBuilder
     }
 };
 
-class Mid_Dist : public BulletBuilder
+class MidDist : public MissleBuilder
 {
   public:
     Speed* getSpeed()
@@ -223,7 +223,7 @@ class Mid_Dist : public BulletBuilder
     }
 };
 
-class Long_Dist : public BulletBuilder
+class LongDist : public MissleBuilder
 {
   public:
     Speed* getSpeed()
@@ -251,6 +251,7 @@ class Long_Dist : public BulletBuilder
 
 class Messeges            
 {
+  public:
   void welcome()
   {                               
     std::cout << "wiadomosc powitalna." << std::endl;
@@ -261,24 +262,118 @@ class Messeges
     std::cout << "wiadomosc pozegnalna." << std::endl;
   }
 
-  void menu()
+  void error()
   {
-    std::cout << "opcje do wyboru" << std::endl;
+    std::cout << "This item is out of range" << std::endl;
+    std::cout << "Plese select item from assortment list."<< std::endl;
+  }
+
+  void ask()
+  {
+    std::cout << "Do you want check the parametrs of other rockets?[Y/N]" << std::endl;
+  }
+
+  void assortment()
+  {
+    std::cout << "|*------------------------ASSORTMENT------------------------*|" << std::endl;
+    std::cout << "|*-------------------------Vehicles-------------------------*|" << std::endl;
+    std::cout << "(1)                      Moon Rocket                   PRICE |" << std::endl;
+    std::cout << "(2)                      Mars Rocket                   PRICE |" << std::endl;
+    std::cout << "|*-------------------------Missles--------------------------*|" << std::endl;
+    std::cout << "(3)                    Short Distance                  PRICE |" << std::endl;
+    std::cout << "(4)                    Medium Distance                 PRICE |" << std::endl;
+    std::cout << "(5)                     Long Distance                  PRICE |" << std::endl;
+    std::cout << "|*----------------------------------------------------------*|" << std::endl;
+    std::cout << "Please select your rocket if you want knew it parametrs." << std::endl;
   }
 }; 
 
 
 int main()
 {
-  Vehicle* vehicle;
-
+  //variables
+  int menuOption;
+  char askOption;
+  bool flag = true;
+  Messeges messeges;
   DesignDirector director;
+  
+  //Welcome messege
+  messeges.welcome();
 
-  MoonRocket moonRocket;
+  //Menu
+  do
+  {
+    messeges.assortment();
+    std::cin >> menuOption;
 
-  std::cout << "Moon Rocket" << std::endl;
-  director.setVehicleBuilder(&moonRocket);
-  vehicle = director.getVehicle();
-  vehicle->parameters();
+    switch (menuOption)
+    {
+    case 1:
+      {
+      MoonRocket moonRocket;
+      Vehicle* vehicle;
+      std::cout << "Moon Rocket" << std::endl;
+      director.setVehicleBuilder(&moonRocket);
+      vehicle = director.getVehicle();
+      vehicle->parameters();
+      break;
+      }
+    case 2:
+      {
+      MarsRocket marsRocket;
+      Vehicle* vehicle;
+      std::cout << "Mars Rocket" << std::endl;
+      director.setVehicleBuilder(&marsRocket);
+      vehicle = director.getVehicle();
+      vehicle->parameters();
+      break;
+      }
+    case 3:
+      {
+      ShortDist shortDist;
+      Missle* missle;
+      std::cout << "Short distance missle" << std::endl;
+      director.setMissleBuilder(&shortDist);
+      missle = director.getMissle();
+      missle->parameters();
+      break;
+      }
+    case 4:
+      {
+      MidDist midDist;
+      Missle* missle;
+      std::cout << "Medium distance missle" << std::endl;
+      director.setMissleBuilder(&midDist);
+      missle = director.getMissle();
+      missle->parameters();
+      break;
+      }
+    case 5:
+      {
+      LongDist longDist;
+      Missle* missle;
+      std::cout << "Short distance missle" << std::endl;
+      director.setMissleBuilder(&longDist);
+      missle = director.getMissle();
+      missle->parameters();
+      break;   
+      }
+    default:
+      messeges.error();
+      break;
+    }
+    
+    messeges.ask();
+    std::cin >> askOption;
+    if(askOption == 'Y' || askOption == 'y')
+      flag = true;
+    else
+      flag = false;
+  }
+  while(flag);
+
+  messeges.goodbye();  
+
   return 0;
 }
