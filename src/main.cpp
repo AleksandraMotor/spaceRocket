@@ -8,7 +8,7 @@ class Speed
     int v;
 };
 
-class NoSeats       //number of seats
+class NumSeats       //number of seats (short from Number is "No.", but we can't use commas, so better "NumSeats, then "no" Seats)
 {
   public:
     int n;
@@ -26,17 +26,19 @@ class Tank
     int vol;
 };
 
-class Firepower
+class Firepower /*Siła ognia to zdolność militarna do kierowania siłą na wroga. 
+                (Nie należy go mylić z pojęciem szybkostrzelności, które opisuje cykliczne działanie mechanizmu strzelającego w systemie uzbrojenia). 
+                Siła ognia obejmuje całą gamę potencjalnych broni. Nie rozumiem co ta klasa ma opisywać? Siłę pocisków? */
 {
   public:
-    int energy;
+    int energy; 
 };
 
 class Vehicle
 {
   public:
     Speed*    velocity;
-    NoSeats*  space;
+    NumSeats*  space;
     Capacity* hold;
 
     void parameters()
@@ -66,7 +68,7 @@ class VehicleBuilder
 {
   public:
     virtual Speed* getSpeed() = 0;
-    virtual NoSeats* getNoSeats() = 0;
+    virtual NumSeats* getNumSeats() = 0;
     virtual Capacity* getCapacity() = 0;
 };
 
@@ -78,7 +80,7 @@ class MissleBuilder
     virtual Firepower* getFirepower() = 0;  
 }; 
 
-class DesignDirector     //Werner Von Braun !!
+class DesignDirector     //Werner Von Braun -> Widmo jego nazistowskiej przeszłości powróciło na początku lat siedemdziesiątych. Lepiej go zostawmy w spokoju :P !!
 {
   VehicleBuilder* vehicleBuilder;
   MissleBuilder* missleBuilder;
@@ -95,7 +97,7 @@ class DesignDirector     //Werner Von Braun !!
 
       vehicle->velocity = vehicleBuilder->getSpeed();
 
-      vehicle->space = vehicleBuilder->getNoSeats();
+      vehicle->space = vehicleBuilder->getNumSeats();
 
       vehicle->hold = vehicleBuilder->getCapacity();
 
@@ -121,7 +123,7 @@ class DesignDirector     //Werner Von Braun !!
       return missle;
     }    
 };
-//---------Concretes Vehicle builders-------------
+//---------Concretes Vehicle builders------------- Betony konstruktor pojazdu?? Może details? albo specifications?
 class MoonRocket : public VehicleBuilder
 {
   public:
@@ -132,9 +134,9 @@ class MoonRocket : public VehicleBuilder
       return velocity;
     } 
 
-    NoSeats* getNoSeats()
+    NumSeats* getNumSeats()
     {
-      NoSeats* space = new NoSeats();
+      NumSeats* space = new NumSeats();
       space->n = 6;
       return space;
     }
@@ -157,9 +159,9 @@ class MarsRocket : public VehicleBuilder
       return velocity;
     } 
 
-    NoSeats* getNoSeats()
+    NumSeats* getNumSeats()
     {
-      NoSeats* space = new NoSeats();
+      NumSeats* space = new NumSeats();
       space->n = 6;
       return space;
     }
@@ -172,7 +174,7 @@ class MarsRocket : public VehicleBuilder
     }
 };
 
-//---------Concretes Bullet builders----------
+//---------Concretes Bullet builders---------- "Konstruktorzy pocisków betonowych" Może details? albo specifications tak technicznie brzmi
 class ShortDist : public MissleBuilder
 {
   public:
@@ -255,22 +257,28 @@ class Messeges
   void welcome()
   {                               
     std::cout << "wiadomosc powitalna." << std::endl;
+    /* "Rakiety są zbudowane z gotowych modułów (części), takich jak:
+    silniki, skrzydła, koła, zbiorniki z paliwem i stateczniki. 
+    Dodatkowe moduły, takie jak gotowe łaziki lub broń, mogą zostać dodane.
+    Proponuję tutaj wypisać części, z których później będziemy budować,
+    nie tylko dla użytkownika, ale tez dla nas, bo się gubię co ma co oznaczać. */
   }
 
   void goodbye()
   {
     std::cout << "wiadomosc pozegnalna." << std::endl;
+    /*  „May the 4th be with You!” XD */
   }
 
   void error()
   {
-    std::cout << "This item is out of range" << std::endl;
-    std::cout << "Plese select item from assortment list."<< std::endl;
+    std::cout << "This item is out of range." << std::endl;
+    std::cout << "Please select an item from the assortment list."<< std::endl;
   }
 
   void ask()
   {
-    std::cout << "Do you want check the parametrs of other rockets?[Y/N]" << std::endl;
+    std::cout << "Do you want to check the parameters of other rockets?"[Y/N]" << std::endl;
   }
 
   void assortment()
@@ -284,7 +292,7 @@ class Messeges
     std::cout << "(4)                    Medium Distance                 PRICE |" << std::endl;
     std::cout << "(5)                     Long Distance                  PRICE |" << std::endl;
     std::cout << "|*----------------------------------------------------------*|" << std::endl;
-    std::cout << "Please select your rocket if you want knew it parametrs." << std::endl;
+    std::cout << "Please select your rocket if you want to know its parameters." << std::endl;
   }
 }; 
 
