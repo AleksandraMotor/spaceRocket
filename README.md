@@ -23,8 +23,41 @@ implementation of builder pattern created with c++.
   * C++ version: 17.0
 
 ## Setup
-
-pozniej napisze
+### Installation:
+ 1. get a makefile api from: [makefile install](https://www.gnu.org/software/make/)
+ 2. clone the repository 
+ ```
+ $ https://github.com/AleksandraMotor/spaceRocket.git
+ $ cd spaceRocket
+ $ make
+ ``` 
+ 3. clean 
+ ``` 
+ $ make clean
+ ``` 
+ 
+The directory structure:
+```
+spaceRocket
+├── Makefile
+├── src
+│   └── main.cpp
+│   └── director.cpp
+│   └── vehicles.cpp
+│   └── missles.cpp
+│   └── message.cpp
+│   └── menu.cpp
+│   └── rocketType.cpp
+└── include
+    ├── builders.hpp
+    ├── director.hpp
+    ├── menu.hpp
+    ├── message.hpp
+    ├── missles.hpp
+    ├── properties.hpp
+    ├── rocketType.hpp
+    ├── vehicles.hpp
+```
 
 ## Changelog
 
@@ -53,6 +86,6 @@ pozniej napisze
 
   Program was created by following students:
 ### [Aleksandra Motor](https://github.com/AleksandraMotor)
-### [Weronika Smagór]
-### [Krzysztof Konieczny]
+### [Weronika Smagór](https://github.com/werooloo)
+### [Krzysztof Konieczny](https://github.com/Linarian235)
 ### [Patryk Polczyk](https://github.com/ppolczyk)
