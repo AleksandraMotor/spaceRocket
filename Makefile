@@ -1,24 +1,43 @@
+CC := g++
+CCFLAGS :=
+DBGFLAGS := -g
+CCOBJFLAGS := $(CCFLAGS) -c
 
-CC	:= gcc # This is the main compiler
-SRCDIR := src
-BUILDDIR := build
-TARGET := bin/runner
- 
-SRCEXT := cpp
-SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
-OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-INC := -I ../include
+BIN_PATH := bin
+OBJ_PATH := build
+SRC_PATH := src
 
-$(TARGET): $(OBJECTS)
-  @echo := " Linking..."
-  @echo := " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
+TARGET_NAME := spaceRocket
+ifeq ($(OS),Windows_NT)
+	TARGET_NAME := $(addsuffix .exe,$(TARGET_NAME))
+endif
+TARGET := $(BIN_PATH)/$(TARGET_NAME)
 
-$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
-  @mkdir := -p $(BUILDDIR)
-  @echo := " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
+SRC := $(foreach x, $(SRC_PATH), $(wildcard $(addprefix $(x)/*,.c*)))
+OBJ := $(addprefix $(OBJ_PATH)/, $(addsuffix .o, $(notdir $(basename $(SRC)))))
 
-clean:
-  @echo := " Cleaning...";
-  @echo := " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
+DISTCLEAN_LIST := $(OBJ) 
+CLEAN_LIST := $(TARGET) \
+			  $(DISTCLEAN_LIST)
+
+# default rule
+default: makedir all
+
+# non-phony targets
+$(TARGET): $(OBJ)
+	$(CC) $(CCFLAGS) -o $@ $(OBJ)
+
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c*
+	$(CC) $(CCOBJFLAGS) -o $@ $<
+
+# phony rules
+.PHONY: makedir
+makedir:
+	@mkdir -p $(BIN_PATH) $(OBJ_PATH)
+
+.PHONY: all
+all: $(TARGET)
 
 .PHONY: clean
+clean:
+	@rm -rvf $(OBJ_PATH) 

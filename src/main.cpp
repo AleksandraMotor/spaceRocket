@@ -1,5 +1,4 @@
-#include "../include/menu.h"
-#include "../include/message.h"
+#include "../include/menu.hpp"
 #include <iostream>
 
 int main()
@@ -9,7 +8,7 @@ int main()
   char askOption;
   bool flag = true;
   Messages messages;
-  Menu* menu = new Menu();
+  Menu menu;
   
   //Welcome messege
   messages.welcome();
@@ -19,7 +18,7 @@ int main()
   {
     messages.assortment();
     std::cin >> menuOption;
-    menu->menu(menuOption);
+    menu.menuDisplay(menuOption);
     
     messages.ask();
     std::cin >> askOption;
@@ -31,6 +30,6 @@ int main()
   while(flag);
 
   messages.goodbye();  
-
+  
   return 0;
 }
