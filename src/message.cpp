@@ -3,7 +3,7 @@
 
 void Messages::welcome()
 {
-    std::cout << "welcome everyone to our \"Rock and Rockets\" store." 
+    std::cout << "Welcome everyone to our \"Rock and Rockets\" store." 
                 "Where can you buy a spaceship or missiles that will destroy what you want." << std::endl;    
 }
 
