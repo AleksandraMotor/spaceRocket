@@ -67,7 +67,14 @@ spaceRocket
     * added welcome and goodbye messages
     * added include folder and class files
     * added makefile code
-
+  #### version 1.2 
+    * Added Vehicles
+     - Moon Rocket
+     - Mars Rocket
+    * Added Missiles
+     - Short Distance
+     - Medium Distance
+     - Long Distance
 ## Sources
 
   The inspiration for the creation of the program was an article about the design pattern from the website:
