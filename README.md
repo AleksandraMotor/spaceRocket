@@ -60,17 +60,10 @@ spaceRocket
 ## Changelog
 
   #### version 1.0
-    * added empty files
-
-  #### version 1.0-2
-    * prepare ToDoList
-    * added scheme of programe
-
-  #### version 1.1
     * added main.cpp code
     * fixed bugs
   
-  #### version 1.2
+  #### version 1.1
     * added welcome and goodbye messages
     * added include folder and class files
     * added makefile code
